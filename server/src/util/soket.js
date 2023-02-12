@@ -8,8 +8,13 @@ module.exports = (http)=>{
     soketIO.on("connection", (socket)=>{
         // console.log(">>>>>>>", socket, ">>>>>>>>>")
 
-        socket.on("newInput", (data)=>{
+        socket.on("oi", (data)=>{
             console.log(data, "ikuzoooooooooooooo")
+        })
+
+        socket.on("encount", (data)=>{
+            socket.emit("screenSwitch", "hit");
+            console.log("encounttttttttttttt")
         })
 
 

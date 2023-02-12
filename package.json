@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "npm run dev -w client2",
+    "client": "npm run dev -w client",
     "server": "npm run dev -w server",
     "dev": "npm-run-all --parallel client server"
   },
   "workspaces": [
     "server",
-    "client2"
+    "client"
   ],
   "keywords": [],
   "author": "",
