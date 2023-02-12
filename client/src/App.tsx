@@ -16,7 +16,7 @@ export interface ClientToServerEvents {
   oi:(input:string)=>void;
   encount:(encount:string)=>void;
 }
-const socket:Socket<ServerToClientEvents, ClientToServerEvents>= io("http://localhost:8000")
+const socket:Socket<ServerToClientEvents, ClientToServerEvents>= io("http://localhost:8080")
 
 function App() {
   const [count, setCount] = useState(0)
