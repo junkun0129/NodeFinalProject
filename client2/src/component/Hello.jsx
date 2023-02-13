@@ -13,7 +13,7 @@ function Hello({socket}) {
         e.preventDefault();
         localStorage.setItem("Input", input)
         console.log("button")
-        socket.emit("newInput", {input, socketID:socket.id, iwatani})
+        socket.emit("newInput", {input, socketID:socket.id})
         navi("/")
     }
 

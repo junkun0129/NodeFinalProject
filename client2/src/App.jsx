@@ -12,7 +12,7 @@ function App() {
    <>
     <BrowserRouter>
       <Routes>
-        <Route path='/hello' element={<Hello socket = {socket}></Hello>}></Route>
+        <Route path='/game' element={<Hello socket = {socket}></Hello>}></Route>
         <Route path='/' element = {<Home></Home>}></Route>
       </Routes>
     </BrowserRouter>

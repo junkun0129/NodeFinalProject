@@ -11,6 +11,8 @@ const config = require("./src/config")
 
 app.use(cors())
 
+app.use(express.json());
+
 require("./src/util/soket")(http);
 
 
