@@ -2,7 +2,14 @@ const mongoose = require("mongoose");
 const {Schema, model, SchemaTypes} = mongoose;
 
 const userStatusSchema = new Schema({
-    
+    level:{
+        type:Number,
+        required:true,
+    },
+    exp:{
+        type:Number,
+        require:true,
+    },
     hp:{
         type:Number,
         required: true
@@ -15,5 +22,5 @@ const userStatusSchema = new Schema({
     
 })
 
-const Status = model("Status", userStatusSchema);
-module.exports = Status;
+module.exports = model("Status", userStatusSchema);
+

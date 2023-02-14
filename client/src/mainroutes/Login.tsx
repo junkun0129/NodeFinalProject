@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { Component, useState } from 'react';
 import {useNavigate} from "react-router-dom"
+import { createUser } from '../store/features/userStatuSlice';
+import { useAppDispatch, useAppSelector } from '../store/store';
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSubmit, setIsSubmit] = useState<boolean>(false)
     const [error, setError] = useState("");
-
+    const userStatusDispach = useAppDispatch();
+    const userStatus = useAppSelector(state=>state.reducer.userStatusReducer)
     const navigate = useNavigate();
 
     const loginsubmit = (e:React.SyntheticEvent)=>{
@@ -29,6 +32,18 @@ function Login() {
                 console.log(response.ok)
                 const data = await response.json()
                 console.log(data)
+                userStatusDispach(createUser({
+                    userId:data.userId,
+                    email:data.email,
+                    name:data.name,
+                    status:{
+                        at:data.status.at,
+                        exp:data.status.exp,
+                        hp:data.status.hp,
+                        level:data.status.level
+                    }
+                }))
+                
                 navigate("/game")
             }
         }).catch(error=>{

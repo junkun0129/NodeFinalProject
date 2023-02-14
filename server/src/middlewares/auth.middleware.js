@@ -9,7 +9,7 @@ const Status = require("../model/UserStatus");
 
 const signUp = async(data)=>{
     
-    const {email} = data;
+    const {email, password, name} = data;
     let user = await User.findOne({email})
 
     if(user) {
@@ -17,16 +17,39 @@ const signUp = async(data)=>{
         error.status = 404
         throw error
     }
+    
+    //create status
+    const firststatus = {
+        level:0,
+        exp:0,
+        hp:20,
+        at:5,
+    }
 
-    user = new User(data);
+    const userstatus = new Status(firststatus);
+
+    await userstatus.save();
+
+    //create user
+    user = new User({
+        name,
+        email,
+        password,
+        status:userstatus._id
+    });
     const token = JWT.sign({id: user._id}, jwtSecret)
 
     await user.save();
+
+    
+
+
 
     return(data={
         userId: user._id,
         email: user.email, 
         name: user.name, 
+        status:user.status,
         token
     })
 }
@@ -37,6 +60,8 @@ const signIn = async(email, password)=>{
     let user = await User.findOne({email}).populate(
         "status"
     );
+
+    // console.log(user)
 
     if(!user){
         const error = new Error("User does not exist");

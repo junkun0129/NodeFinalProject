@@ -11,7 +11,11 @@ const userSchema = new Schema({
         type: SchemaTypes.ObjectId,
         ref: "Status",
         required: true,
-    }
+    }, 
+    // item:[{
+    //     type: SchemaTypes.ObjectId,
+    //     ref:"Item"
+    // }]
 
 }, {
     timestamps: true,
