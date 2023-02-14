@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const {Schema, model} = mongoose
+const {Schema, model, SchemaTypes} = mongoose
 const bcrypt = require("bcryptjs")
 const {salt} = require("../config")
 
@@ -7,6 +7,11 @@ const userSchema = new Schema({
     name : { type: String, trim: true, required: true },
     email : { type: String, trim: true, required: true, unique: true },
     password : { type: String }, 
+    status: {
+        type: SchemaTypes.ObjectId,
+        ref: "Status",
+        required: true,
+    }
 
 }, {
     timestamps: true,

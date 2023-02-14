@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { useState, useEffect } from 'react';
+import {useNavigate} from "react-router-dom"
 
 function Signup() {
 
@@ -8,6 +9,8 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
 
+
+    const navigate = useNavigate();
     const [contents, setContents] = useState(null);
     const [error, setError] = useState("");
 
@@ -32,7 +35,7 @@ function Signup() {
             }else{
                 const data = await response.json();
                 console.log(data);
-
+                navigate("/login");
             }
         }).catch(error=>{
             console.log(error.message)

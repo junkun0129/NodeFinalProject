@@ -6,6 +6,8 @@ import { socketType } from './Field';
 import { useState, useEffect } from 'react';
 import Genkiman from '../enemycompo/Genkiman';
 
+import Hentaiyou from '../enemycompo/Hentaiyou';
+
 function Battle({socket}:socketType) {
     const [isEncount, setIsEncount] = useState<boolean>(false);
 
@@ -36,7 +38,7 @@ function Battle({socket}:socketType) {
                             <Genkiman></Genkiman>
                         </div>
                         <div className={styles.fieldEach} >
-                            <Genkiman></Genkiman>
+                            <Hentaiyou></Hentaiyou>
                         </div>
                         <div className={styles.fieldEach}>
                             <Genkiman></Genkiman>

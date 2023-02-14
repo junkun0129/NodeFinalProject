@@ -2,11 +2,7 @@ const mongoose = require("mongoose");
 const {Schema, model, SchemaTypes} = mongoose;
 
 const userStatusSchema = new Schema({
-    user: {
-        type: SchemaTypes.ObjectId,
-        ref: "User", 
-        required: true,
-    },
+    
     hp:{
         type:Number,
         required: true
