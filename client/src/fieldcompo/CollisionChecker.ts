@@ -116,7 +116,7 @@ export class CollisionChecker{
                                 npcX <= collisionTileX+this.gp.tilesize-20&&
                                 npcY+this.gp.tilesize >= collisionTileY&&
                                 npcY <= collisionTileY+this.gp.tilesize-20){
-                                    console.log("collisionNPC down!!!");
+                                    // console.log("collisionNPC down!!!");
                                     this.gp.collisionNPC = true;
                                     
                 
@@ -129,7 +129,7 @@ export class CollisionChecker{
                                 npcX <= collisionTileX+this.gp.tilesize-20&&
                                 npcY+this.gp.tilesize >= collisionTileY+20&&
                                 npcY <= collisionTileY+this.gp.tilesize-20){
-                                    console.log("collisionNPC right!!!");
+                                    // console.log("collisionNPC right!!!");
                                     this.gp.collisionNPC = true;
                                     
                 
@@ -141,7 +141,7 @@ export class CollisionChecker{
                                 npcX <= collisionTileX+this.gp.tilesize&&
                                 npcY+this.gp.tilesize >= collisionTileY+20&&
                                 npcY <= collisionTileY+this.gp.tilesize-20){
-                                    console.log("collisionNPC left!!!");
+                                    // console.log("collisionNPC left!!!");
                                     this.gp.collisionNPC = true;
                                     
                 
@@ -154,7 +154,7 @@ export class CollisionChecker{
                                 npcX <= collisionTileX+this.gp.tilesize-20&&
                                 npcY+this.gp.tilesize >= collisionTileY+20&&
                                 npcY <= collisionTileY+this.gp.tilesize){
-                                    console.log("collisionNPC up!!!");
+                                    // console.log("collisionNPC up!!!");
                                     this.gp.collisionNPC = true;
                                     
                 
@@ -261,7 +261,7 @@ export class CollisionChecker{
                             this.gp.player.playerX+20 <= npcX+this.gp.tilesize+this.gp.npc[i].npcX-700&&
                             this.gp.player.playerY+this.gp.tilesize-50 >= npcY+this.gp.npc[i].npcY-400&&
                             this.gp.player.playerY <= npcY+this.gp.tilesize+this.gp.npc[i].npcY-300+40){
-                                console.log("collisionNPC down!!!");
+                                // console.log("collisionNPC down!!!");
                                 this.gp.collision = true;
                                 this.gp.collisionNPC = true;
                                 return i;
@@ -275,7 +275,7 @@ export class CollisionChecker{
                             this.gp.player.playerX <= npcX+this.gp.tilesize+this.gp.npc[i].npcX-700&&
                             this.gp.player.playerY+this.gp.tilesize-20 >= npcY+this.gp.npc[i].npcY-400&&
                             this.gp.player.playerY+20 <= npcY+this.gp.tilesize+this.gp.npc[i].npcY-300){
-                                console.log("collisionNPC right!!!");
+                                // console.log("collisionNPC right!!!");
                                 this.gp.collision = true;
                                 this.gp.collisionNPC = true;
                                 return i;
@@ -288,7 +288,7 @@ export class CollisionChecker{
                             this.gp.player.playerX+50 <= npcX+this.gp.tilesize+this.gp.npc[i].npcX-700&&
                             this.gp.player.playerY+this.gp.tilesize-20 >= npcY+this.gp.npc[i].npcY-400&&
                             this.gp.player.playerY+20 <= npcY+this.gp.tilesize+this.gp.npc[i].npcY-300){
-                                console.log("collisionNPC left!!!");
+                                // console.log("collisionNPC left!!!");
                                 this.gp.collision = true;
                                 this.gp.collisionNPC = true;
                                 return i;
@@ -302,7 +302,7 @@ export class CollisionChecker{
                             this.gp.player.playerX+20 <= npcX+this.gp.tilesize+this.gp.npc[i].npcX-700&&
                             this.gp.player.playerY+this.gp.tilesize >= npcY+this.gp.npc[i].npcY-400&&
                             this.gp.player.playerY+40 <= npcY+this.gp.tilesize+this.gp.npc[i].npcY-300){
-                                console.log("collisionNPC up!!!");
+                                // console.log("collisionNPC up!!!");
                                 this.gp.collision = true;
                                 this.gp.collisionNPC = true;
                                 return i;

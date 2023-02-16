@@ -67,6 +67,15 @@ export class Keyhandler{
                     }
 
                     //select item on menu
+                    if(this.gp.ui.menuNumber === 1){
+                        if(e.key === "e"){
+
+                            this.gp.sound[1].playMusic();
+                            this.gp.gameState = this.gp.statusViewScene;
+                        }
+                    }
+
+                    //select item on menu
                     if(this.gp.ui.menuNumber === 2){
                         if(e.key === "e"){
 
@@ -106,6 +115,16 @@ export class Keyhandler{
                     
                 }
 
+                if(this.gp.gameState === this.gp.statusViewScene){
+                    if(e.key === "e" && this.gp.ui.makesureWaite > 10){
+                    
+                            console.log(this.gp.ui.makesureWaite, ";lk;lj;")
+                            this.gp.sound[1].playMusic();
+                            this.gp.gameState = this.gp.menuScene;
+                            this.gp.ui.makesureWaite = 0;
+                    }
+                }
+
                 //select items on itemView
                 if(this.gp.gameState === this.gp.itemViewSecne){
 
@@ -141,7 +160,7 @@ export class Keyhandler{
                             if(this.gp.ui.makesureWaite>0){
 
                                 this.gp.sound[1].playMusic();
-                                this.gp.gameState = this.gp.fieldScene;
+                                this.gp.gameState = this.gp.menuScene;
                                 this.gp.ui.itemViewNum = 1;
                                 this.gp.ui.makesureWaite = 0;
                             }

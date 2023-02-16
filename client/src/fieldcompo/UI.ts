@@ -1,5 +1,7 @@
 import { GamePanel } from "./GamePanel.js";
 
+
+
 export class UI{
     gp:GamePanel;
     menuNumber:number = 1;
@@ -10,7 +12,6 @@ export class UI{
 
     numberOfItem:number = 1;
     currentDialog:string = "";
-
 
     
 
@@ -24,6 +25,11 @@ export class UI{
         //menu draw
         if(this.gp.gameState === this.gp.menuScene){
             this.drawMenu(c);
+        }
+
+        if(this.gp.gameState === this.gp.statusViewScene){
+            this.makesureWaite++
+            this.drawStatusView(c);
         }
 
         //select item
@@ -57,7 +63,7 @@ export class UI{
         const menuX:number = 1150;
         const menuY:number = 50;
         
-        
+        const iwatani = localStorage.getItem("a")
         if(this.gp.gameState !== this.gp.itemViewSecne){
 
             c.fillStyle = "black";
@@ -92,8 +98,61 @@ export class UI{
         
     }
 
+    drawStatusView(c:CanvasRenderingContext2D){
+        const statusMenuX = 150;
+        const statusMenuY = 40;
+        const statusMenuWidth = 1200;
+        const statusMenuHeight = 600;
+
+        
+
+        c.fillStyle = "black";
+        c.fillRect(statusMenuX,statusMenuY,statusMenuWidth,statusMenuHeight);
+
+        c.strokeStyle = "white";
+        c.lineJoin = "bevel";
+        c.lineWidth = 15;
+        c.strokeRect(statusMenuX,statusMenuY,statusMenuWidth,statusMenuHeight)
+
+        //close
+        c.fillStyle = "white"
+        c.font = "30px monospace";
+        c.fillText("close", 1100,115)
+        c.lineWidth = 3;
+        c.strokeRect(1090,85,100,40)
+
+        //title
+        c.fillStyle = "white";
+        c.font = "40px monospace";
+        c.fillText("Status", statusMenuX+70, statusMenuY+80)
+
+        c.beginPath () ;
+        c.moveTo( statusMenuX+70, statusMenuY+100);
+        c.lineTo( statusMenuX+1100, statusMenuY+100 );
+        c.strokeStyle = "white";
+        c.lineWidth = 5;
+        c.stroke();
+
+        //picture
+        const image = new Image;
+        image.src = "img/blond.png";
+        c.drawImage(image, statusMenuX+70, statusMenuY+150, 250, 250)
+
+        //name
+        c.fillStyle = "white";
+        c.font = "40px monospace";
+        c.fillText(`name: ${this.gp.status.name}`, statusMenuX+390, statusMenuY+180)
+
+        //status
+        c.fillText(`level: ${this.gp.status.status.level}`, statusMenuX+390, statusMenuY+250)
+        c.fillText(`exp: ${this.gp.status.status.exp}`, statusMenuX+390, statusMenuY+320)
+        c.fillText(`hp: ${this.gp.status.status.hp}`, statusMenuX+390, statusMenuY+390)
+        c.fillText(`at: ${this.gp.status.status.at}`, statusMenuX+390, statusMenuY+460)
+    }
+
     drawItemView(c:CanvasRenderingContext2D){
 
+        
         //item
         const itemMenuX = 150;
         const itemMenuY = 40;
@@ -223,6 +282,8 @@ export class UI{
         c.fillStyle = "white"
         c.font = "100px monospace";
         c.fillText("iwataniiiiiiii",100,100);
+
+        
     }
 
     

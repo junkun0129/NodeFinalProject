@@ -16,11 +16,11 @@ function Game({socket}:socketType) {
 
     return ( 
         <>
-        {/* <div className={styles.gameBox}>
+        <div className={styles.gameBox}>
 
             <Field socket={socket}></Field>
             <Battle socket = {socket}></Battle>
-        </div> */}
+        </div>
         <h1>{userStatuSelector.email}</h1>
         <h1>{userStatuSelector.name}</h1>
         <h1>{userStatuSelector.status.level}</h1>

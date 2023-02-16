@@ -14,8 +14,31 @@ import { Sounds } from "./Sounds.js";
 import { Book } from "./Book.js";
 import { Socket } from "socket.io-client";
 import { ServerToClientEvents, ClientToServerEvents } from "../App.js";
+import {getItemFromLocalState} from "./LocalState"
 
+type statusType = {
+    email:string,
+    name:string,
+    status:{
+        at:number,
+        exp:number,
+        hp:number,
+        level:number
+    },
+    userId:string
+}
 
+const damiStatus = {
+    email:"",
+    name:"",
+    status:{
+        at:0, 
+        exp:0,
+        hp:0,
+        level:0
+    },
+    userId:""
+}
 
 export class GamePanel{
 
@@ -34,6 +57,7 @@ export class GamePanel{
     public startOverMakeSureScene:number = 4;
     public talkingScene:number = 5;
     public objectTalkingScene:number = 6;
+    public statusViewScene:number = 7;
     
     public gameStartOver:boolean = false;
 
@@ -72,6 +96,7 @@ export class GamePanel{
     public ID:number = 0;
     public books:Book[] = []; 
     public booksCollision:boolean = false;
+    
 
    
 
@@ -91,7 +116,7 @@ export class GamePanel{
 
     public showCoodinates:boolean = true;
 
-   
+    public status:statusType = damiStatus;
     constructor(c:CanvasRenderingContext2D, socket: Socket<ServerToClientEvents, ClientToServerEvents>){
         
         this.c = c;
@@ -124,6 +149,9 @@ export class GamePanel{
         this.asset.setDoor();
         
         this.socket.emit("oi", this.input)
+        
+        this.status = JSON.parse(getItemFromLocalState("persist:root").userStatusReducer)
+        
         this.gameloop();
 
 
@@ -225,7 +253,7 @@ export class GamePanel{
         const ramdomNum:number = Math.floor(Math.random()*200)
 
         if(ramdomNum === 50){
-
+            
             return true
         }else{
             return false;
