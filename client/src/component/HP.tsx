@@ -20,8 +20,8 @@ function HP({dialog, sceneState}:dialogType) {
     const [ishenge, setIshenge] = useState(false);
     const dialogOpacity = useTransform(
     sceneStateMotionValue, 
-    [0  ,1,2,3  ,4,5  ],
-    [0.8,0,0,0.8,0,0.8]
+    [0  ,1,2,3  ,4,5  ,0],
+    [0,0.8,0,0,0.8,0,0.8]
     )
     // const hpHeight:MotionValue<number> = useTransform(motionHP, s=>s*0.1)
     useEffect(()=>{
@@ -58,7 +58,11 @@ function HP({dialog, sceneState}:dialogType) {
                     style={{position:"absolute",top:"0px",opacity:dialogOpacity,zIndex:"0",backgroundColor:"black",width:"100%", height:"100%" }}
                 ></motion.div>
 
-                <h1 style={{position:"absolute",top:"10px",left:"50px",color:"white",  zIndex:"100"}}>{dialog}</h1>
+                <motion.h1 style={{position:"absolute",top:"10px",left:"50px",color:"white",  zIndex:"100"}}
+                           initial={{ pathLength: 0 }}
+                           animate={{ pathLength: 1 }}
+                           transition = {{delay:1, duration:1}}
+                >{dialog}</motion.h1>
             </motion.div>
         </>
      );

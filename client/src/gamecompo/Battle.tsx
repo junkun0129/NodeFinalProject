@@ -11,12 +11,13 @@ import HP from '../component/HP';
 
 function Battle({socket}:socketType) {
     const [isEncount, setIsEncount] = useState<boolean>(false);
-    const appearedScene = 0;
-    const yourTurnScene = 1;
-    const yourActionScene = 2
-    const enemiesTurnScene = 3;
-    const enemiesActionScene = 4
-    const afterBattleScene = 5;
+    const battleOffScene = 0;
+    const appearedScene = 1
+    const yourTurnScene = 2;
+    const yourActionScene =3 
+    const enemiesTurnScene = 4;
+    const enemiesActionScene = 5
+    const afterBattleScene = 6;
     const [sceneState, setSceneState] = useState<number>(0);
 
     const appearDialog = "Enemy appeared!!"
@@ -31,17 +32,14 @@ function Battle({socket}:socketType) {
             setIsEncount(true)
             console.log("entounttttttttttt")
           })
+
+        setSceneState(appearedScene);
         
     },[socket])
 
     useEffect(()=>{
         setDialog(appearDialog);
-    },[sceneState === 0])
-
-    useEffect(()=>{
-
-        
-    },[dialog])
+    },[sceneState === appearedScene])
 
     const variant = {
         hidden:{},
@@ -53,6 +51,7 @@ function Battle({socket}:socketType) {
 
     return ( 
         <>
+            <h1>{dialog}</h1>
             <motion.div className={styles.battleBox} 
                 variants = {variant}
                 transition = {{delay:2, duration:2}}
@@ -70,7 +69,9 @@ function Battle({socket}:socketType) {
                         </div>
                     </div>
                     
-                    <div style={{display:"flex", justifyContent:"center"}}>
+                    <div style={{display:"flex", justifyContent:"center"}}
+                         
+                    >
                         <HP dialog = {dialog} sceneState = {sceneState}></HP>
                     </div>
                     
