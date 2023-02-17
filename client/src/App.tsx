@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 //import './App.css'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
+import styles from "./App.module.scss"
 import socketIO, {io, Socket, SocketOptions} from "socket.io-client"
 import Hello from './component/Hello'
 import Game from './mainroutes/Game'

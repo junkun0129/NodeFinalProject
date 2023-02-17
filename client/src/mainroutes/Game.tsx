@@ -21,9 +21,7 @@ function Game({socket}:socketType) {
             <Field socket={socket}></Field>
             <Battle socket = {socket}></Battle>
         </div>
-        <h1>{userStatuSelector.email}</h1>
-        <h1>{userStatuSelector.name}</h1>
-        <h1>{userStatuSelector.status.level}</h1>
+        
         
         </>
      );

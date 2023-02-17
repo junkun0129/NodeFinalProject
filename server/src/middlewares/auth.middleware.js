@@ -20,7 +20,7 @@ const signUp = async(data)=>{
     
     //create status
     const firststatus = {
-        level:0,
+        level:1,
         exp:0,
         hp:20,
         at:5,
