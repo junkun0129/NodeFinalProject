@@ -23,7 +23,7 @@ function Battle({socket}:socketType) {
     const appearDialog = "Enemy appeared!!"
     const yourturnDialog = "drag and choose"
     
-
+    
     const [dialog, setDialog] = useState<string>("");
 
 
@@ -41,6 +41,17 @@ function Battle({socket}:socketType) {
         setDialog(appearDialog);
     },[sceneState === appearedScene])
 
+
+    useEffect(()=>{
+        setDialog(yourturnDialog);
+    },[sceneState === yourTurnScene])
+    
+    const stateChanger = ()=>{
+        if(sceneState<6){
+            setSceneState(sceneState+1);
+        }
+        console.log("statechange")
+    }
     const variant = {
         hidden:{},
         show:{
@@ -70,8 +81,10 @@ function Battle({socket}:socketType) {
                     </div>
                     
                     <div style={{display:"flex", justifyContent:"center"}}
-                         
+                         onClick = {()=>stateChanger()} 
                     >
+                        <h1>{sceneState}</h1>
+                        <h1>{dialog}</h1>
                         <HP dialog = {dialog} sceneState = {sceneState}></HP>
                     </div>
                     

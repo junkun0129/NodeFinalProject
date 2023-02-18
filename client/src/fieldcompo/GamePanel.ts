@@ -58,7 +58,8 @@ export class GamePanel{
     public talkingScene:number = 5;
     public objectTalkingScene:number = 6;
     public statusViewScene:number = 7;
-    
+    public battleScene:number = 8
+
     public gameStartOver:boolean = false;
 
     //map state
@@ -198,7 +199,12 @@ export class GamePanel{
         
         //encount
         const encount = this.Encounter();
-        if(encount)this.socket.emit("encount", "hit")
+        // if(encount)this.socket.emit("encount", "hit")
+
+        if(encount&&this.gameState!==this.battleScene){
+            this.socket.emit("encount", "hit");
+            this.gameState = this.battleScene;
+        }
         
         requestAnimationFrame(this.gameloop.bind(this)); 
     }

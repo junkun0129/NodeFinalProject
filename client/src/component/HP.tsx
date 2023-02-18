@@ -28,6 +28,10 @@ function HP({dialog, sceneState}:dialogType) {
         maxhp = hp;
     },[])
 
+    useEffect(()=>{
+        console.log(sceneState, "child state change")
+    },[sceneState])
+
     const HpTranform:MotionValue<number> = useTransform(motionHP, [0, maxhp], [0, 100])
         
     
