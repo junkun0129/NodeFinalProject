@@ -21,6 +21,10 @@ app.get(("/"), (req, res, next)=>{
 })
 
 app.use(("/auth"), require("./src/route/auth"))
+app.use(("/enemy"), require("./src/route/enemy"))
+app.get(("/i"), (req, res, next)=>{
+    res.send(";lkj")
+})
 
 
 

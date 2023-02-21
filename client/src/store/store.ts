@@ -6,7 +6,9 @@ import storage from "redux-persist/lib/storage";
 import {persistReducer} from "redux-persist"
 import {combineReducers} from "@reduxjs/toolkit"
 
-import enemyReducer from "./features/enemySlice"
+import {enemy1Reducer} from "./features/enemySlice"
+import { enemy2Reducer } from "./features/enemySlice";
+import { enemy3Reducer } from "./features/enemySlice";
 import userStatusReducer from "./features/userStatuSlice"
 
 const persisConfig = {
@@ -16,7 +18,9 @@ const persisConfig = {
 };
 
 const reducer = combineReducers({
-    enemyReducer,
+    enemy1Reducer,
+    enemy2Reducer,
+    enemy3Reducer,
     userStatusReducer 
 })
 
