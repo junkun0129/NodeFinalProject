@@ -1,4 +1,4 @@
-aaaaaaa
+
 /what I improved
  :switching into battle screen 
  :battle system
@@ -13,13 +13,15 @@ aaaaaaa
  *back
   :express :mongoose :sokect
 
-// data flow
-*enemies
- :front
+/data flow
+enemies
+ *frontend
  1. you encount enemies 
  2. fetch 3 ramdomized enemies data from backend
  3. find components from arrrrrray that have same enemy name 
  4. shows
+ 
+ 
 
 
 
