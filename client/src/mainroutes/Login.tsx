@@ -40,6 +40,7 @@ function Login() {
                         at:data.status.at,
                         exp:data.status.exp,
                         hp:data.status.hp,
+                        maxmumHp:data.status.maxmumHp,
                         level:data.status.level
                     }
                 }))

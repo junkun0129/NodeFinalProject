@@ -14,6 +14,10 @@ const userStatusSchema = new Schema({
         type:Number,
         required: true
     },
+    maxmumHp:{
+        type:Number,
+        required:true
+    },
     at:{
         type:Number,
         required: true

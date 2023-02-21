@@ -10,12 +10,14 @@ import Signup from './mainroutes/Signup'
 import Login from './mainroutes/Login'
 export interface ServerToClientEvents {
   screenSwitch:(hit:string)=>void;
+  backSwitch:(backback:string)=>void;
 }
 
 export interface ClientToServerEvents {
   hello: () => void;
   oi:(input:string)=>void;
   encount:(encount:string)=>void;
+  back:(backback:string)=>void;
 }
 const socket:Socket<ServerToClientEvents, ClientToServerEvents>= io("http://localhost:8080")
 

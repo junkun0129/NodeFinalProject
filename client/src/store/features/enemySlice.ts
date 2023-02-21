@@ -21,12 +21,15 @@ export const enemy1Slice = createSlice({
         },
         atackEnemy1:(state, action:PayloadAction<{atack:Number}>)=>{
             state.hp=state.hp-action.payload.atack
+        },
+        maketozero1:(state)=>{
+            state.hp = 0
         }
     }
 })
 
 export const enemy1Reducer = enemy1Slice.reducer;
-export const {atackEnemy1, createEnemy1} = enemy1Slice.actions 
+export const {atackEnemy1, createEnemy1, maketozero1} = enemy1Slice.actions 
 
 //enemy2
 export const enemy2Slice = createSlice({
@@ -40,12 +43,15 @@ export const enemy2Slice = createSlice({
         },
         atackEnemy2:(state, action:PayloadAction<{atack:Number}>)=>{
             state.hp=state.hp-action.payload.atack
+        },
+        maketozero2:(state)=>{
+            state.hp = 0
         }
     }
 })
 
 export const enemy2Reducer = enemy2Slice.reducer;
-export const {atackEnemy2, createEnemy2} = enemy2Slice.actions 
+export const {atackEnemy2, createEnemy2, maketozero2} = enemy2Slice.actions 
 
 //enemy3
 export const enemy3Slice = createSlice({
@@ -59,9 +65,12 @@ export const enemy3Slice = createSlice({
         },
         atackEnemy3:(state, action:PayloadAction<{atack:Number}>)=>{
             state.hp=state.hp-action.payload.atack
+        },
+        maketozero3:(state)=>{
+            state.hp = 0
         }
     }
 })
 
 export const enemy3Reducer = enemy3Slice.reducer;
-export const {atackEnemy3, createEnemy3} = enemy3Slice.actions 
+export const {atackEnemy3, createEnemy3, maketozero3} = enemy3Slice.actions 

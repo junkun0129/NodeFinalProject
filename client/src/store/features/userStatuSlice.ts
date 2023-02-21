@@ -5,7 +5,7 @@ type initialStateType = {
     email:string,
     name:string,
     status:{
-        at:number, exp:number, hp:number, level:number
+        at:number, exp:number, hp:number,maxmumHp:number, level:number
     }
 }
 const initialState:initialStateType = {
@@ -13,7 +13,7 @@ const initialState:initialStateType = {
     email:"",
     name:"",
     status:{
-        at:0, exp:0, hp:0, level:0
+        at:0, exp:0, hp:0,maxmumHp:0, level:0
     }
 }
 
@@ -29,12 +29,20 @@ export const userStatusSlice = createSlice({
                 at:action.payload.status.at,
                 exp:action.payload.status.exp,
                 hp:action.payload.status.hp,
+                maxmumHp:action.payload.status.maxmumHp,
                 level:action.payload.status.level,
             }
+        },
+        getAttackFromEnemy:(state, action:PayloadAction<{attack:Number}>)=>{
+            state.status.hp = state.status.hp - action.payload.attack;
+            
+        },
+        restoreHP:(state, action:PayloadAction<{hp:Number}>)=>{
+            state.status.hp = action.payload.hp
         }
     }
 })
 
 export default userStatusSlice.reducer;
-export const {createUser} = userStatusSlice.actions
+export const {createUser, getAttackFromEnemy, restoreHP} = userStatusSlice.actions
 
