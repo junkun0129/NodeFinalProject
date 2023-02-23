@@ -62,9 +62,9 @@ function Battle({socket}:socketType) {
 
     
     const [drag, setDrag]= useState(0);
-    const [enemy1, setEnemy1] = useState<JSX.Element|null>(null)
-    const [enemy2, setEnemy2] = useState<JSX.Element|null>(null)
-    const [enemy3, setEnemy3] = useState<JSX.Element|null>(null)
+    const [enemy1, setEnemy1] = useState<JSX.Element[]|null>(null)
+    const [enemy2, setEnemy2] = useState<JSX.Element[]|null>(null)
+    const [enemy3, setEnemy3] = useState<JSX.Element[]|null>(null)
     const enemyhp1:MotionValue = motionValue(enemy1Selector.hp) 
     const enemyhp2:MotionValue = motionValue(enemy2Selector.hp) 
     const enemyhp3:MotionValue = motionValue(enemy3Selector.hp) 

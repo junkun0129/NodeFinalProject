@@ -19,7 +19,7 @@ export const enemy1Slice = createSlice({
             state.hp=action.payload.hp,
             state.at=action.payload.at
         },
-        atackEnemy1:(state, action:PayloadAction<{atack:Number}>)=>{
+        atackEnemy1:(state, action:PayloadAction<{atack:number}>)=>{
             state.hp=state.hp-action.payload.atack
         },
         maketozero1:(state)=>{
@@ -41,7 +41,7 @@ export const enemy2Slice = createSlice({
             state.hp=action.payload.hp,
             state.at=action.payload.at
         },
-        atackEnemy2:(state, action:PayloadAction<{atack:Number}>)=>{
+        atackEnemy2:(state, action:PayloadAction<{atack:number}>)=>{
             state.hp=state.hp-action.payload.atack
         },
         maketozero2:(state)=>{
@@ -63,7 +63,7 @@ export const enemy3Slice = createSlice({
             state.hp=action.payload.hp,
             state.at=action.payload.at
         },
-        atackEnemy3:(state, action:PayloadAction<{atack:Number}>)=>{
+        atackEnemy3:(state, action:PayloadAction<{atack:number}>)=>{
             state.hp=state.hp-action.payload.atack
         },
         maketozero3:(state)=>{

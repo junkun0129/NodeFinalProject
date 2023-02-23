@@ -13,17 +13,13 @@ module.exports = (http)=>{
         })
 
         socket.on("encount", (data)=>{
-            if(data==="hit"){
-
-                socket.emit("screenSwitch", "hit");
-            }else if(data==="back"){
-                console.log(";lskdfj;alsdfj;sdkfj;skdfj;skjf;")
-                socket.emit("screenSwitch", "backback")
-                
-            }
-
-
             
+            socket.emit("screenSwitch", "hit");
+            
+        })
+
+        socket.on("back", (data)=>{
+            socket.emit("backSwitch", "backback")
         })
 
 
